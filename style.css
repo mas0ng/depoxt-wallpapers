@@ -1,0 +1,186 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Full-Screen Sections */
+.half-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Each section takes up half the viewport height */
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.half-section:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+    filter: brightness(0.8); /* Darken the image slightly on hover */
+}
+
+.section-content {
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure the text is above the background */
+}
+
+.section-content h1 {
+    font-size: 3em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Drop shadow for the text */
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.half-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Overlay to improve text readability */
+    z-index: 0;
+}
+
+/* ===================== Catalog Pages (pfps.html & wallpapers.html) ===================== */
+
+/* Catalog Grid Layout */
+.catalog {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Responsive Grid: Profile Pictures */
+.catalog-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.catalog-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #111;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.catalog-item:hover {
+    transform: scale(1.05); /* Slight zoom-in on hover */
+}
+
+.download-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-decoration: none; /* Ensures the button looks like a button */
+}
+
+.download-btn:hover {
+    background-color: #ddd; /* Lighter background on hover */
+}
+
+.download-icon {
+    font-size: 1.2em;
+}
+
+/* Wallpapers styling: Maintain aspect ratio */
+.wallpaper img {
+    aspect-ratio: 9/19;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* ===================== Responsive Design ===================== */
+
+/* Responsive Grid for Catalog */
+@media (min-width: 1200px) {
+    .catalog {
+        grid-template-columns: repeat(8, 1fr); /* 8 items per row for desktops */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .catalog {
+        grid-template-columns: repeat(4, 1fr); /* 4 items per row for tablets */
+    }
+}
+
+@media (max-width: 767px) {
+    .catalog {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row for mobile */
+    }
+}
+
+/* ===================== 404 Page ===================== */
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #000; /* Black background */
+    color: #fff;
+}
+
+.error-code {
+    font-size: 8em;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 4px 4px 15px rgba(255, 0, 0, 0.8); /* Red drop shadow for emphasis */
+}
+
+.error-message {
+    font-size: 1.5em;
+    margin: 10px 0;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Subtle drop shadow for text */
+}
+
+.error-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.error-button:hover {
+    background-color: #ddd;
+    transform: scale(1.1); /* Slight zoom on hover */
+}
